@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 import com.belatrix.wearablegyroscope.realtime.GyroscopeStat;
 
-public class MainActivity extends AppCompatActivity {
+public class    MainActivity extends AppCompatActivity {
 
     public static final String STATS_KEY = "_stats_key";
     public static final String STATS_ACTION = "_stats_action";
