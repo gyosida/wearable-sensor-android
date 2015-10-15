@@ -19,13 +19,13 @@ import ibt.ortc.extensibility.OrtcClient;
 public class MainActivity extends AppCompatActivity implements SensorEventListener {
 
     private final String TAG = this.getClass().getCanonicalName();
-    private final Gson gson = new Gson();
+//    private final Gson gson = new Gson();
     private SensorManager mSensorManager;
     private Sensor mGyroscopeSensor;
-    private OrtcClient mRealTimeClient;
+//    private OrtcClient mRealTimeClient;
     private float[] gravity = new float[3];
     private float[] linear_acceleration = new float[3];
-    private final float alpha = 0.8f;
+    private final float alpha = 0.6f;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         mGyroscopeSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-        mRealTimeClient = OrtcManager.getInstance().getOrtcClient();
+//        mRealTimeClient = OrtcManager.getInstance().getOrtcClient();
 
         setSupportActionBar(toolbar);
     }
@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     protected void onResume() {
         super.onResume();
 
-        mRealTimeClient.connect("ddQu0z", "bMNLN9gzom1Z");
+//        mRealTimeClient.connect("ddQu0z", "bMNLN9gzom1Z");
         mSensorManager.registerListener(this, mGyroscopeSensor, SensorManager.SENSOR_DELAY_NORMAL);
     }
 
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         super.onPause();
 
         mSensorManager.unregisterListener(this);
-        mRealTimeClient.disconnect();
+//        mRealTimeClient.disconnect();
     }
 
     @Override
@@ -72,10 +72,10 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         params.targetRotationX = linear_acceleration[0];
         params.targetRotationY = linear_acceleration[1];
 
-        String json = gson.toJson(params);
+//        String json = gson.toJson(params);
 
-        Log.d(TAG, json);
-        mRealTimeClient.send("my_channel", json);
+//        Log.d(TAG, json);
+//        mRealTimeClient.send("my_channel", json);
     }
 
     @Override
