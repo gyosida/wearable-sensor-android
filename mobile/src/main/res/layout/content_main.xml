@@ -37,7 +37,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/coordinate_x"/>
+            android:text="@string/coordinate_Y"/>
 
         <TextView
             android:id="@+id/tv_coordinate_y"
