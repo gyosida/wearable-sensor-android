@@ -1,19 +1,18 @@
 package com.belatrix.wearablegyroscope.services;
 
+import android.content.Intent;
+import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
+import com.belatrix.wearablegyroscope.MainActivity;
 import com.belatrix.wearablegyroscope.realtime.OrtcManager;
-import com.belatrix.wearablegyroscope.realtime.Params;
-import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.wearable.DataEventBuffer;
+import com.belatrix.wearablegyroscope.realtime.GyroscopeStat;
 import com.google.android.gms.wearable.DataMap;
 import com.google.android.gms.wearable.MessageEvent;
-import com.google.android.gms.wearable.Wearable;
 import com.google.android.gms.wearable.WearableListenerService;
 import com.google.gson.Gson;
 
 import ibt.ortc.extensibility.OrtcClient;
-import ibt.ortc.extensibility.OrtcFactory;
 
 /**
  * Created by pcarrillo on 06/10/2015.
@@ -51,13 +50,21 @@ public class GyroscopeWearableListener extends WearableListenerService {
             Log.e(TAG, "coordinate x " + String.valueOf(positionDataMap.getFloat(TAG_X_COORDINATE)));
             Log.e(TAG, "coordinate y " + String.valueOf(positionDataMap.getFloat(TAG_Y_COORDINATE)));
             // Send information to Real Time client
-            Params params = new Params();
-            params.targetRotationX = positionDataMap.getFloat(TAG_X_COORDINATE);
-            params.targetRotationY = positionDataMap.getFloat(TAG_Y_COORDINATE);
+            GyroscopeStat gyroscopeStat = new GyroscopeStat();
+            gyroscopeStat.targetRotationX = positionDataMap.getFloat(TAG_X_COORDINATE);
+            gyroscopeStat.targetRotationY = positionDataMap.getFloat(TAG_Y_COORDINATE);
 
-            String json = gson.toJson(params);
+            String json = gson.toJson(gyroscopeStat);
             Log.d(TAG, json);
+            notifyStats(gyroscopeStat);
             mRealTimeClient.send("my_channel", json);
         }
+    }
+
+    private void notifyStats(GyroscopeStat gyroscopeStat) {
+        Intent intent = new Intent(MainActivity.STATS_ACTION);
+
+        intent.putExtra(MainActivity.STATS_KEY, gyroscopeStat);
+        LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
     }
 }

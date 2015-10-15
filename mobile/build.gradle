@@ -12,6 +12,9 @@ android {
         versionName "1.0"
     }
     buildTypes {
+        debug {
+            buildConfigField "String", "CUBE_URL", "\"http://192.168.1.239:8088/amazing/master_cube_client.html\""
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -28,4 +31,5 @@ dependencies {
     compile 'com.android.support:design:23.0.1'
     compile 'co.realtime:messaging-android:2.1.54'
     compile 'com.google.code.gson:gson:1.7.2'
+    compile 'com.android.support:gridlayout-v7:23.0.1'
 }
