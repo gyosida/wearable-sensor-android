@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">WearableGyroscope</string>
+
+    <string name="coordinate_x">Coordinate X: </string>
+    <string name="coordinate_y">Coordinate Y: </string>
+    <string name="start">Start</string>
+    <string name="cancel">Cancel</string>
 </resources>

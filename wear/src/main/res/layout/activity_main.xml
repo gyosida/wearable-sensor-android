@@ -1,9 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.wearable.view.WatchViewStub
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.wearable.view.BoxInsetLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" android:id="@+id/watch_view_stub"
-    android:layout_width="match_parent" android:layout_height="match_parent"
-    app:rectLayout="@layout/rect_activity_main" app:roundLayout="@layout/round_activity_main"
-    tools:context=".MainActivity"
-    tools:deviceIds="wear"></android.support.wearable.view.WatchViewStub>
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="5dp"
+        app:layout_box="all">
+
+        <android.support.v7.widget.GridLayout
+            android:id="@+id/gl_stats"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="10dp"
+            app:columnCount="2">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/coordinate_x"/>
+
+            <TextView
+                android:id="@+id/tv_coordinate_x"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="1.22342"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/coordinate_y"/>
+
+            <TextView
+                android:id="@+id/tv_coordinate_y"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="1.22342" />
+
+        </android.support.v7.widget.GridLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@id/gl_stats"
+            android:text="Gyroscope Stats"/>
+
+    </RelativeLayout>
+
+</android.support.wearable.view.BoxInsetLayout>
