@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/activity_main"
+    tools:context="com.belatrix.wearablegyroscope.MainActivity">
+
+    <WebView
+        android:id="@+id/wv_cube"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <android.support.v7.widget.GridLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:padding="@dimen/dimen_x3_5"
+        app:columnCount="2">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/dimen_x3_5"
+            android:layout_marginBottom="@dimen/dimen_x3_5"
+            android:text="@string/coordinate_x"/>
+
+        <TextView
+            android:id="@+id/tv_coordinate_x"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="1.22342"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/coordinate_Y"/>
+
+        <TextView
+            android:id="@+id/tv_coordinate_y"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="1.22342" />
+
+    </android.support.v7.widget.GridLayout>
+
+</LinearLayout>

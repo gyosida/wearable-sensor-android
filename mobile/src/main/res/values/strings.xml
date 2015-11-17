@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">WearableGyroscope</string>
+    <string name="app_name">Wearable Gyroscope</string>
+    <string name="title_activity_main">3D Cube</string>
+
+    <string name="coordinate_x">Coordinate X:</string>
+    <string name="coordinate_Y">Coordinate Y:</string>
 </resources>

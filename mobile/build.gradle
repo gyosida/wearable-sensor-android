@@ -12,6 +12,9 @@ android {
         versionName "1.0"
     }
     buildTypes {
+        debug {
+            buildConfigField "String", "CUBE_URL", "\"http://45.55.206.39/wearawar/master_cube_client.html\""
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -25,4 +28,8 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.0.1'
     compile 'com.google.android.gms:play-services:7.8.0'
+    compile 'com.android.support:design:23.0.1'
+    compile 'co.realtime:messaging-android:2.1.54'
+    compile 'com.google.code.gson:gson:1.7.2'
+    compile 'com.android.support:gridlayout-v7:23.0.1'
 }
